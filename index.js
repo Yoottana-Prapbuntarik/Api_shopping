@@ -29,6 +29,9 @@ function queryDatabasePromise(query, queryValues) {
     })
 }
 // call my item in your cart 
+app.get('/',(req,res)=>{
+    res.send('Welcome to web services');
+})
 app.get('/Cart',(req,res)=>{
     let id = req.params.id;
     let queryCart = 'SELECT * FROM cart where id =?';
