@@ -39,7 +39,7 @@ app.get('/Cart',(req,res)=>{
     queryDatabasePromise(queryCart).then(results=>{
             res.json(results);
     }
-app.get('/Cart',(req,res)=>{
+app.get('/Cart/:id',(req,res)=>{
     let id = req.params.id;
     let queryCart = 'SELECT * FROM cart where id =?';
     queryDatabasePromise(queryCart,id).then(results=>{
