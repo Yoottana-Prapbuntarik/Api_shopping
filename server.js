@@ -11,8 +11,10 @@ const db = mySql.createConnection({
     password: 'iTERE5enl4',
     database: 'sql12302482',
 });
+
+
 db.connect();
-app.use(cors());
+// app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 /* Promise Query Database */
