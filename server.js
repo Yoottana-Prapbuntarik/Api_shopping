@@ -1,6 +1,5 @@
 const express = require('express');
 const mySql = require('mysql');
-const cors = require('cors');
 const bodyParser = require('body-parser');
 const httpStatus = require('http-status-codes');
 const app = express();
@@ -12,8 +11,8 @@ const db = mySql.createConnection({
     database: 'sql12302482',
 });
 
+
 db.connect();
-// app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 /* Promise Query Database */
@@ -30,23 +29,16 @@ function queryDatabasePromise(query, queryValues) {
     })
 }
 // call my item in your cart 
-app.get('/', (req, res) => {
+app.get('/',(req,res)=>{
     res.send('Welcome to web services');
 })
-
-app.get('/Cart', (req, res) => {
-    let queryCart = 'SELECT * FROM cart';
-    queryDatabasePromise(queryCart).then(results => {
-        res.json(results)
-    })
-})
-app.get('/Cart/:id', (req, res) => {
+app.get('/Cart/:id',(req,res)=>{
     let id = req.params.id;
     let queryCart = 'SELECT * FROM cart where id =?';
-    queryDatabasePromise(queryCart, id).then(results => {
-        if (results.length == 0) {
+    queryDatabasePromise(queryCart,id).then(results=>{
+        if(results.length == 0){
             res.send(httpStatus.NOT_FOUND)
-        } else {
+        }else{
             res.json(results)
         }
     })
