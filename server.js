@@ -11,7 +11,7 @@ const db = mySql.createConnection({
     password: 'iTERE5enl4',
     database: 'sql12302482',
 });
-
+app.use(content="default-src * 'unsafe-inline' 'unsafe-eval'")
 
 db.connect();
 // app.use(cors());
