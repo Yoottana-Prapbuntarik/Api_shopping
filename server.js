@@ -33,6 +33,12 @@ function queryDatabasePromise(query, queryValues) {
 app.get('/',(req,res)=>{
     res.send('Welcome to web services');
 })
+
+app.get('/Cart',(req,res)=>{
+    let queryCart = 'SELECT * FROM cart';
+    queryDatabasePromise(queryCart).then(results=>{
+            res.json(results);
+    }
 app.get('/Cart',(req,res)=>{
     let id = req.params.id;
     let queryCart = 'SELECT * FROM cart where id =?';
