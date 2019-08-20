@@ -47,7 +47,7 @@ app.get('/Cart/:id',(req,res)=>{
 app.post('/Cart', (req, res) => {
     let postData = req.body;
     let insertDataInTodos = 'INSERT INTO cart SET ?';
-    if (postData.text === undefined) {
+    if (postData === undefined) {
         res.send(httpStatus.BAD_REQUEST);
     } else {
         queryDatabasePromise(insertDataInTodos, postData).then((results) => {
