@@ -1,5 +1,6 @@
 const express = require('express');
 const mySql = require('mysql');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const httpStatus = require('http-status-codes');
 const app = express();
@@ -11,8 +12,8 @@ const db = mySql.createConnection({
     database: 'sql12302482',
 });
 
-
 db.connect();
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 /* Promise Query Database */
@@ -32,6 +33,7 @@ function queryDatabasePromise(query, queryValues) {
 app.get('/',(req,res)=>{
     res.send('Welcome to web services');
 })
+
 app.get('/Cart/:id',(req,res)=>{
     let id = req.params.id;
     let queryCart = 'SELECT * FROM cart where id =?';
