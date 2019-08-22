@@ -45,6 +45,16 @@ app.get('/Cart/:id',(req,res)=>{
         }
     })
 })
+app.get('/Cart',(req,res)=>{
+    let queryCart = 'SELECT * FROM Table ORDER BY ID DESC LIMIT 1'
+    queryDatabasePromise(queryCart).then(results=>{
+        if(results.length == 0){
+            res.send(httpStatus.NOT_FOUND)
+        }else{
+            res.json(results)
+        }
+    })
+})
 
 app.post('/Cart', (req, res) => {
     let postData = req.body;    
