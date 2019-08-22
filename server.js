@@ -46,7 +46,7 @@ app.get('/Cart/:id',(req,res)=>{
     })
 })
 app.get('/Cart',(req,res)=>{
-    let queryCart = 'SELECT * FROM cart ORDER BY ID DESC LIMIT 1'
+    let queryCart = 'SELECT * FROM cart ORDER BY ID DESC LIMIT 2'
     queryDatabasePromise(queryCart).then(results=>{
         if(results.length == 0){
             res.send(httpStatus.NOT_FOUND)
