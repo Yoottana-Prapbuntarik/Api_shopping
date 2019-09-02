@@ -6,10 +6,10 @@ const httpStatus = require('http-status-codes');
 const app = express();
 const port = process.env.PORT || 4000;
 const db = mySql.createConnection({
-    host: 'sql12.freemysqlhosting.net',
-    user: 'sql12302482',
-    password: 'iTERE5enl4',
-    database: 'sql12302482',
+    host: 'db4free.net',
+    user: 'demowebcart',
+    password: '7d3b6655',
+    database: 'demowecart',
 });
 
 db.connect();
